@@ -339,15 +339,15 @@ const Home = () => {
             <section id="professional-experience">
               <Row
                 id="professional-experience-row"
-                className={`g-4 mt-5 ${
-                  isInView[3] ? "animate-fadeInUp" : "invisible-animate"
-                }`}
+                // className={`g-4 mt-5 ${
+                //   isInView[3] ? "animate-fadeInUp" : "invisible-animate"
+                // }`}
                 ref={(el) => addRef(el, 3)}
               >
+                <Col xs={12}>
                 <h1 className="display-1 plus-jakarta-sans-bold text-center mb-4">
                   Professional Experience
                 </h1>
-                <Col xs={12}>
                   <div>
                     <h2 className="display-5 fw-bold">Software Developer</h2>
                     <p className="h4 fw-bold">
