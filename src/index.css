@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+
+.plus-jakarta-sans-bold {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Peso 700 para negrita */
+  font-style: normal;
+}
+/* Configuración base */
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #7d7e7c;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+
+  --font-family: 'Roboto', sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.main-content {
+  width: 70%;
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  padding: 20px;
+  margin: 10px;
+  overflow-y: auto; /* Habilita scroll si es necesario */
+}
+
+.scroll-to-top {
+  width: 50px;
+  flex-shrink: 0; /* Evita que el botón cambie de tamaño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: linear-gradient(to left, black, transparent);
+}
+
+.scroll-to-top.fade-in {
+  opacity: 1;
+}
+
+.scroll-to-top.fade-out {
+  opacity: 0;
+}
+
+.scroll-to-top button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Asegura que esté sobre el contenido */
+  color: gray;
+  border: none;
+  background: transparent;  /*Asegura que nunca haya fondo */
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  
+}
+
+/* Desactivar todo tipo de background en hover */
+.scroll-to-top button:hover {
+  color: #fff; /* Cambiar el color del texto a blanco */
+  font-size: 1.2rem; /* Aumentar el tamaño del texto */
+  padding: 12px 18px; /* Aumentar el padding para agrandar el botón */
+  background: transparent !important; /* Asegura que el fondo siga siendo transparente */
+  box-shadow: none !important; /* Elimina cualquier sombra que aparezca en hover */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+body {
+  font-family: var(--font-family);
+  /* background-color: var(--light-color); */
+  color: var(--primary-color);
+}
+
+/* Enlaces */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: darken(var(--primary-color), 10%);
+  text-decoration: underline;
+}
+
+
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c1114;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1; /* Asegúrate de que las partículas estén detrás del contenido */
+  pointer-events: none; /* Esto permite que los eventos de mouse lleguen a los elementos debajo */
+}
+
+/* ---- icons -------- */
+.icon:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* --- effects --- */
+.zoom:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotation:hover {
+  transform: rotate(10deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.continuous-pulse {
+  animation: pulse 2s infinite;
+}
+
+
+/* ---- stats.js ---- */
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles {
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Estado inicial del elemento */
+.invisible-animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-in-out forwards; /* 'forwards' mantiene el estado final de la animación */
+}
+
+
+
+
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.g-4 .col {
+  margin-bottom: 20px;
+}

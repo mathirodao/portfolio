@@ -1,0 +1,43 @@
+<Container fluid backgroundColor="red" > 
+       {/* Sección inicial */}
+       <Row className="vh-100 justify-content-center align-items-center bg-light">
+         <Col xs={12} className="text-center animate-fadeIn">
+           <h1 className="display-1 plus-jakarta-sans-bold">MATHIAS RODAO</h1>
+           <h2 className="mt-3 text-secondary plus-jakarta-sans-bold">
+             Software Developer
+           </h2>
+         </Col>
+       </Row>
+
+       {/* Sobre Mi */}
+       <Row id="about-me" className="py-5 mx-auto">
+         <Col xs={12} md={8} lg={6} className="mx-auto">
+           <h2 className="text-center mb-4 plus-jakarta-sans-bold">Sobre Mi</h2>
+           <p className="text-center">
+             Aquí va una breve descripción sobre mí y mi trayectoria profesional.
+           </p>
+           <div className="text-center">
+             <a
+              href="path/to/CV.pdf"
+              className="btn btn-primary mt-3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver mi CV
+            </a>
+          </div>
+        </Col>
+      </Row>
+
+      {/* Mis Proyectos */}
+      <Row id="projects" className="py-5 mx-auto">
+        <Col xs={12}>
+          <h2 className="text-center mb-4 plus-jakarta-sans-bold">
+            Mis Proyectos
+          </h2>
+          <p className="text-center">
+            Aquí va una descripción de mis proyectos.
+          </p>
+        </Col>
+      </Row>
+    </Container>

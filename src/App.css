@@ -1,0 +1,115 @@
+/* General */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color:#ffffff;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+p {
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #d1d1d1; /* Cambia a un color blanco más claro o gris claro en hover */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+
+
+/* Aplicación */
+body {
+  font-family: 'Roboto', sans-serif;
+  /* background-color: #f8f9fa; Color de fondo claro */
+  /* color: #212529; Color de texto oscuro */
+  color: white;
+}
+
+/* Contenedores */
+.container {
+  padding: 1rem;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Textos */
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Clases específicas */
+.text-center {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* Botones */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+
+/* iconos */
+
+.file-icon {
+  font-size: 7rem;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.file-icon:hover {
+  color: white;
+}
+
