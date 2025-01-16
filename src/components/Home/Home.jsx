@@ -37,19 +37,35 @@ const Home = () => {
   const [certifications, setCertifications] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleScroll = () => {
-    if (window.scrollY > 200) {
-      // Cambia 200 por el valor que consideres adecuado
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+  // const handleScroll = () => {
+  //   if (window.scrollY > 200) {
+  //     // Cambia 200 por el valor que consideres adecuado
+  //     setIsVisible(true);
+  //   } else {
+  //     setIsVisible(false);
+  //   }
+  // };
+
+  const handleScrollFallback = () => {
+    sectionRefs.current.forEach((ref, index) => {
+      if (ref) {
+        const rect = ref.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+        if (isInView) {
+          setIsInView((prev) => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }
+      }
+    });
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScrollFallback);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollFallback);
     };
   }, []);
 
@@ -123,7 +139,10 @@ const Home = () => {
             });
           }
         },
-        { threshold: 0.5 } // Detecta visibilidad al 50%
+        {
+          threshold: 0.25, // Detecta visibilidad al 25%
+          rootMargin: "0px 0px -10% 0px", // Margen adicional para móviles
+        }
       );
 
       if (ref) observer.observe(ref);
@@ -140,7 +159,9 @@ const Home = () => {
   }, []);
 
   const addRef = (el, index) => {
-    sectionRefs.current[index] = el; // Asigna la referencia al índice correspondiente
+    if (!sectionRefs.current[index]) {
+      sectionRefs.current[index] = el; // Asigna el ref solo si no existe
+    }
   };
 
   return (
@@ -339,15 +360,17 @@ const Home = () => {
             <section id="professional-experience">
               <Row
                 id="professional-experience-row"
-                // className={`g-4 mt-5 ${
-                //   isInView[3] ? "animate-fadeInUp" : "invisible-animate"
-                // }`}
+                className={`g-4 mt-5 ${
+                  isInView[3] || window.innerWidth < 768
+                    ? "animate-fadeInUp"
+                    : "invisible-animate"
+                }`}
                 ref={(el) => addRef(el, 3)}
               >
                 <Col xs={12}>
-                <h1 className="display-1 plus-jakarta-sans-bold text-center mb-4">
-                  Professional Experience
-                </h1>
+                  <h1 className="display-1 plus-jakarta-sans-bold text-center mb-4">
+                    Professional Experience
+                  </h1>
                   <div>
                     <h2 className="display-5 fw-bold">Software Developer</h2>
                     <p className="h4 fw-bold">
