@@ -318,7 +318,9 @@ const Home = () => {
                 key="technical-skills-row"
                 id="technical-skills-row"
                 className={`g-4 mt-5 ${
-                  isInView[1] ? "animate-fadeInUp" : "invisible-animate"
+                  isInView[1] || window.innerWidth < 768
+                    ? "animate-fadeInUp"
+                    : "invisible-animate"
                 }`}
                 ref={(el) => addRef(el, 1)}
               >
