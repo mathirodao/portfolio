@@ -37,14 +37,19 @@ const Home = () => {
   const [certifications, setCertifications] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  // const handleScroll = () => {
-  //   if (window.scrollY > 200) {
-  //     // Cambia 200 por el valor que consideres adecuado
-  //     setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
-  // };
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      // Cambia 200 por el valor que consideres adecuado
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleScrollFallback = () => {
     sectionRefs.current.forEach((ref, index) => {
